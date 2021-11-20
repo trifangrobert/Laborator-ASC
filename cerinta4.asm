@@ -9,6 +9,7 @@
 	index: .space 4
 	s: .space 500
 	sep: .asciz " "
+	formatPrintfEnter: .asciz "\n"
 	formatScanf: .asciz "%2000[^\n]"
 	formatPrintf: .asciz "%d "
 .text
@@ -191,7 +192,7 @@ et_mul_for:
 	movl (%edi, %ecx, 4), %eax
 
 	xorl %edx, %edx
-	mull value
+	imull value
 
 	movl %eax, (%edi, %ecx, 4)
 
@@ -211,7 +212,8 @@ et_div_for:
 	movl (%edi, %ecx, 4), %eax
 
 	xorl %edx, %edx
-	divl value
+	cdq
+	idivl value
 
 	movl %eax, (%edi, %ecx, 4)
 
@@ -307,8 +309,8 @@ et_print_for:
 	jmp et_print_for
 
 exit:
-	pushl $0
-	call fflush
+	pushl $formatPrintfEnter
+	call printf
 	popl %ebx
 
 	movl $1, %eax

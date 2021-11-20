@@ -1,4 +1,5 @@
 .data
+	formatPrintfEnter: .asciz "\n"
 	formatScanf: .asciz "%s"
 	formatPrintfInt: .asciz "%d "
 	formatPrintfChar: .asciz "%c "
@@ -679,8 +680,8 @@ last8:
 	je continue_get_op
 
 exit:
-	pushl $0
-	call fflush
+	pushl $formatPrintfEnter
+	call printf
 	popl %ebx
 	movl $1, %eax
 	xorl %ebx, %ebx
