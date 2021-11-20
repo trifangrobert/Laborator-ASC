@@ -103,7 +103,7 @@ solve:
 	pushl %eax
 	call strlen
 	popl %ebx
-wtf:
+
 	cmp $6, %eax
 	je do_rotate
 
@@ -231,7 +231,7 @@ do_rotate:
 	call printf
 	popl %ebx
 	popl %ebx
-asd:
+
 	movl $0, j
 	et_for_j:
 		xorl %ecx, %ecx
