@@ -1,9 +1,9 @@
 .data
 	read_mode: .asciz "r"
-    input_file: .asciz "sudoku.in"
-    write_mode: .asciz "w"
-    output_file: .asciz "sudoku.out"
-    newline: .asciz "\n"
+	input_file: .asciz "sudoku.in"
+	write_mode: .asciz "w"
+	output_file: .asciz "sudoku.out"
+	newline: .asciz "\n"
 	N: .long 9
 	val: .space 4
 	all: .long 81
@@ -15,7 +15,7 @@
 	freq_squares: .space 1000
 	sol: .long 0
 	format_scanf: .asciz "%d"
-    format_printf: .asciz "%d "
+	format_printf: .asciz "%d "
 .text
 
 update_freq:
