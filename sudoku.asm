@@ -452,10 +452,9 @@ continue_et_for_read_sudoku:
 
 end_read_sudoku:
 	pushl %eax
-    call fclose
-    popl %ebx
-    jmp check_input
-
+	call fclose
+	popl %ebx
+	jmp check_input
 
 check_input:
 	xorl %ecx, %ecx
