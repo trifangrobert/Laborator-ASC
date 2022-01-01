@@ -547,9 +547,9 @@ print_sudoku:
 
 end_print_sudoku:
 	pushl %eax
-    call fclose
-    popl %ebx
-    jmp et_exit
+	call fclose
+	popl %ebx
+	jmp et_exit
 
 no_solution:
 	pushl $write_mode
@@ -574,8 +574,8 @@ no_solution:
 	popl %ebx
 
 	pushl %eax
-    call fclose
-    popl %ebx
+	call fclose
+	popl %ebx
 
 et_exit:
 	movl $1, %eax
